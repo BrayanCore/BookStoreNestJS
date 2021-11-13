@@ -1,3 +1,4 @@
+import { Allow } from "class-validator";
 import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { User } from "../user/user.entity";
 
@@ -7,9 +8,11 @@ export class Role extends BaseEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
+    @Allow()
     @Column({type: 'varchar', length: 20, nullable: false})
     name: string;
 
+    @Allow()
     @Column({type: 'text', nullable: false})
     description: string;
 
